@@ -1,0 +1,29 @@
+syntax = "proto3"; //объявляем версию
+
+package auth; //объявляем пакет
+
+option go_package = "tuzov.sso.v1;ssov1"; //объявляем язык голанг для кодогенерации
+
+service Auth { //определяем методы сервиса
+  rpc Register (RegisterRequest) returns (RegisterResponse);
+  rpc Login (LoginRequest) returns (LoginResponse);
+}
+//структуры запроса состоят из названия метода и их полей:
+
+message RegisterRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message RegisterResponse {
+  int64 user_id = 1;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+ }
+
+message LoginResponse {
+  string token = 1;
+}
