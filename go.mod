@@ -1,4 +1,4 @@
-module github.com/Izames/protosprotos
+module github.com/Izames/protos
 
 go 1.21
 
