@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "github.com/Izames/protos/proto/DnD;Person";
+
+package Person;
+
+service PersonService {
+  rpc CreatePerson (CPRequest) returns (CPResponse);
+}
+
+message Disease {
+  string name = 1;
+  bool deadly = 2;
+}
+
+message CPRequest {
+  string name = 1;
+  uint32 age = 2;
+  repeated Disease diseases = 3;
+}
+
+message CPResponse {
+  int64 person_id = 1;
+}
